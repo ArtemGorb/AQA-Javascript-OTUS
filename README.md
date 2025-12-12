@@ -1,1 +1,1 @@
-# AQA-Javascript-OTUS
+# Создано в рамках курса OTUS JavaScript QA Engineer
