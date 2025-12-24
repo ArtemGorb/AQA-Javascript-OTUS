@@ -1,4 +1,3 @@
-function greet(name) {
-  return `Hello, ${name}!`
-}
-console.log(greet('World'))
+import Namer from './Namer.js'
+
+Namer.myFunction('Имярек')
