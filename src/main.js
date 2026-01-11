@@ -1,3 +1,8 @@
-import Namer from './Namer.js'
 
-Namer.myFunction('Имярек')
+const foo = (name) => {
+    return `some str ${name}`
+}
+
+console.log(foo('somsht'))
+
+

@@ -11,9 +11,9 @@ function whatKolobokDoneAfterMet(character) {
 
 function newYearCalling(character) {
   switch (character) {
-    case 'Дед Мороз': { console.log(`${character}! ${character}! ${character}!`) };
+    case 'Дед Мороз': { console.log(`${character}! `.repeat(3)) };
     break
-    case 'Снегурочка': { console.log(`${character}! ${character}! ${character}!`) };
+    case 'Снегурочка': { console.log(`${character}! `.repeat(3)) };
     break
   }
 }
