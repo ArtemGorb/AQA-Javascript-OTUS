@@ -7,8 +7,9 @@
     
         {
             "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
+            "request": "attach",
+            "name": "Attach",
+            "port": 9229,
             "skipFiles": [
                 "<node_internals>/**"
             ],

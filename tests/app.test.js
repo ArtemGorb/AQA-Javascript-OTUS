@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import  { nameIsValid, fullTrim, getTotal } from '../../../src/app.js'
+import  { nameIsValid, fullTrim, getTotal } from '../src/app.js'
 
 test('Name data type check. String returns true', () => {
  expect(nameIsValid('wasd')).toBeTruthy()
@@ -17,11 +17,11 @@ test.each([
 test.each([
   ['asd', true],
   ['zsd', true],
-  ['\'sd', false],
+  ["'sd", false],
   ['{sd', false]
 ])
 ('Name valid symbols check. "%s" returns %s', (name, expectedResult) => {
-    expect(nameIsValid(name)).toBe(expectedResult)
+  expect(nameIsValid(name)).toBe(expectedResult)
 });
 
 test.each([
