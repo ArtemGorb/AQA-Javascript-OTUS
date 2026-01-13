@@ -1,0 +1,30 @@
+{
+  "name": "ag-aqa-js-otus",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/ArtemGorb/AQA-Javascript-OTUS#readme",
+  "bugs": {
+    "url": "https://github.com/ArtemGorb/AQA-Javascript-OTUS/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArtemGorb/AQA-Javascript-OTUS.git"
+  },
+  "license": "ISC",
+  "author": "Artem Gorbunov",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "lint:ci": "eslint .",
+    "lint": "eslint . --fix",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js tests/api.test.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@faker-js/faker": "^10.2.0",
+    "@types/jest": "^30.0.0",
+    "globals": "^16.5.0",
+    "jest": "^30.2.0",
+    "prettier": "^3.7.4"
+  }
+}
