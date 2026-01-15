@@ -38,3 +38,25 @@ export const getTotal = (items = [], discount = 0) => {
   const total = items.reduce((acc, { price, quantity }) => acc + price * quantity, 0)
   return total * (1 - discount / 100)
 }
+
+/**
+ * Подсчет суммы очков
+ *
+ * @param { Object.<string, number> } scores
+ * @returns { number } Арифметическая сумма всех значений ключей переданного объекта 
+ */
+
+const scores = {
+  hooman1: 12, 
+  hooman2: 54,
+  hooman3: 3,
+  hooman4: 23,
+  doggo: 999
+}
+
+function getScoreSumm(scores) {
+  const arrayFromObj = Object.values(scores)
+  return arrayFromObj.reduce((acc, score) => acc + score)
+}
+
+console.log(getScoreSumm(scores))
