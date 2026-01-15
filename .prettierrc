@@ -3,7 +3,7 @@
   "bracketSameLine": false,
   "objectWrap": "preserve",
   "bracketSpacing": false,
-  "semi": false,
+  "semi": true,
   "experimentalOperatorPosition": "end",
   "experimentalTernaries": true,
   "singleQuote": true,
@@ -20,5 +20,6 @@
   "requirePragma": false,
   "tabWidth": 2,
   "useTabs": false,
-  "embeddedLanguageFormatting": "auto"
+  "embeddedLanguageFormatting": "auto",
+  "ignore": ["*"]
 }
