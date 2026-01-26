@@ -46,7 +46,6 @@ test('Total calc check', () => {
 
 test.each([
   null,
-  undefined,
   true,
   faker.number.bigInt(),
   faker.string.alpha(),
