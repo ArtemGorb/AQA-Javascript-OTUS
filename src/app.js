@@ -34,7 +34,7 @@ export const getTotal = (items = [], discount = 0) => {
   if (discount < 0 || discount >= 100) {
     throw new Error('Процент скидки должен быть от 0 до 99')
   }
-
+ 
   const total = items.reduce((acc, { price, quantity }) => acc + price * quantity, 0)
   return total * (1 - discount / 100)
 }
