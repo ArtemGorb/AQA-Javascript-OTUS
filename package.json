@@ -17,7 +17,7 @@
     "lint:ci": "eslint .",
     "lint": "eslint . --fix",
     "type-check": "tsc --noEmit",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js tests/api.test.js"
+    "test": "jest tests/api.test.js"
   },
   "devDependencies": {
     "@babel/core": "^7.28.6",
