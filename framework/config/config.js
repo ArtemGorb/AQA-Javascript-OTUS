@@ -1,9 +1,9 @@
-import 'dotenv/config'
+import 'dotenv/config';
 
 const config = {
     baseURL: process.env.BASEURL,
-    alreadyInUseUsername: process.env.ALREADY_IN_USE_USERNAME
+    alreadyInUseUsername: process.env.alreadyInUseUsername
 } 
 const getConfig = () => config
 
-export default { getConfig }
+export default {getConfig};
