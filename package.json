@@ -17,7 +17,14 @@
     "lint:ci": "eslint .",
     "lint": "eslint . --fix",
     "type-check": "tsc --noEmit",
-    "test": "jest tests/BookListAPI.test.js"
+    "test": "jest tests/BookListAPI.test.js",
+    "allure": "allure serve reports/allure-results",
+    "allure:test": "zx scripts/allure.zx.mjs",
+    "allure:history": "node scripts/allure-history.mjs",
+    "allure:generate": "allure generate reports/allure-results --clean --report-dir reports/allure-report",
+    "allure:open": "allure open reports/allure-report",
+    "allure:ci": "allure generate reports/allure-results --clean --report-dir reports/allure-report",
+    "allure:ci:show": "allure open reports/allure-report"
   },
   "devDependencies": {
     "@babel/core": "^7.28.6",
@@ -29,6 +36,8 @@
     "@jest/globals": "^30.2.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.0.10",
+    "allure-commandline": "^2.36.0",
+    "allure-jest": "^3.4.5",
     "babel-jest": "^30.2.0",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
