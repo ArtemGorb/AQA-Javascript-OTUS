@@ -43,7 +43,7 @@ describe('Создание листа книг', () => {
 });
 
 describe('Обновление данных книги', () => {
-  const isbns = [BooksDataFeeder.generateISBN()]
+  const isbns = [BooksDataFeeder.generateISBN()];
   beforeEach(async () => {
     await BooksOperator.createBookList(userID, isbns, token);
   });
