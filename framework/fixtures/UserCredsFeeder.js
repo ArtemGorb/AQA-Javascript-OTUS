@@ -1,7 +1,9 @@
+/* eslint-disable no-undef */
+
 import {faker} from '@faker-js/faker';
 import {v4 as uuid} from 'uuid';
 function generateRandomUsername() {
-  return (username = faker.internet.username());
+  return faker.internet.username();
 }
 
 function generateNotExistUsername() {
