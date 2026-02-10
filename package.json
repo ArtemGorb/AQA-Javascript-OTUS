@@ -13,11 +13,12 @@
   "license": "ISC",
   "author": "Artem Gorbunov",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
     "lint:ci": "eslint .",
     "lint": "eslint . --fix",
     "type-check": "tsc --noEmit",
-    "test": "jest tests/BookListAPI.test.js",
+    "test": "jest tests/BookListAPI.test.ts",
     "allure": "allure serve reports/allure-results",
     "allure:test": "zx scripts/allure.zx.mjs",
     "allure:history": "node scripts/allure-history.mjs",

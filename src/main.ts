@@ -1,5 +1,5 @@
 
-const foo = (name) => {
+const foo = (name: any) => {
     return `some str ${name}`
 }
 

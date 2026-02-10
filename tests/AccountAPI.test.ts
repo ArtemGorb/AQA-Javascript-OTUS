@@ -1,11 +1,11 @@
-import AccountOperator from '../framework/fixtures/AccountOperator.js';
-import UserCredsFeeder from '../framework/fixtures/UserCredsFeeder.js';
-import config from '../framework/config/config.js';
+import AccountOperator from '../framework/services/AccountOperator';
+import UserCredsFeeder from '../framework/fixtures/UserCredsFeeder';
+import config from '../framework/config/config';
 
 const username = UserCredsFeeder.generateRandomUsername();
 const password = UserCredsFeeder.generatePassword8();
-let userID = null;
-let token = null;
+let userID: string;
+let token: string;
 
 describe('Создание пользователя', () => {
   it('Успешно', async () => {
@@ -16,7 +16,7 @@ describe('Создание пользователя', () => {
       expect(creationCheckResult.status).toBe(200);
     } else {
       console.log(result.text, username, password);
-      expect(result.status).toBeTruthy(false);
+      expect(false).toBeTruthy();
     }
   });
 

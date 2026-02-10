@@ -1,35 +1,34 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import tseslint from 'typescript-eslint';
-import json from '@eslint/json';
-import jest from 'eslint-plugin-jest';
-import prettier from 'eslint-plugin-prettier/recommended';
-import {defineConfig} from 'eslint/config';
+import globals from "globals";
+import tseslint from "typescript-eslint";
+import pluginJs from '@eslint/js'
+import eslintPluginPrettierRecommended, { files } from 'eslint-plugin-prettier/recommended'
+import jest from 'eslint-plugin-jest'
 
-export default defineConfig([
+export default tseslint.config(
   {
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
-    plugins: {js},
-    extends: ['js/recommended'],
-    languageOptions: {
-      globals: {...globals.browser, ...globals.node}
+    languageOptions: { globals: { ...globals.browser, ...globals.node } }
+  },
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  //...tseslint.configs.strict,
+  ...tseslint.configs.stylistic,
+  eslintPluginPrettierRecommended,
+  {
+    ignores: ['reports']
+  },
+  {
+    files: ['**/*.js'],
+    extends: [tseslint.configs.disableTypeChecked]
+  },
+  {
+    files: ['scripts/**/*.zx.js'],
+    globals: {
+      $: true,
+      fs: true
     }
   },
-  tseslint.configs.recommended,
   {
-    files: ['**/*.json'],
-    plugins: {json},
-    language: 'json/json',
-    extends: ['json/recommended'],
-    ignores: ['.vscode/launch.json', 'package-lock.json', 'tsconfig.json']
-  },
-  {
-    files: ['**/*.{test,spec}.{js,ts}'],
-    ...jest.configs['flat/recommended'],
-    rules: {
-      ...jest.configs['flat/recommended'].rules,
-      'jest/prefer-expect-assertions': 'off'
-    }
-  },
-  prettier
-]);
+    files: ['test/**', 'setup-jest.js'],
+    ...jest.configs['flat/recommended']
+  }
+);

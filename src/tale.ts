@@ -1,4 +1,4 @@
-function whatKolobokDoneAfterMet(character) {
+function whatKolobokDoneAfterMet(character: any) {
   switch (character) {
     case 'дедушка': { console.log('Я от дедушки ушел') };
     break
@@ -9,7 +9,7 @@ function whatKolobokDoneAfterMet(character) {
   }
 }
 
-function newYearCalling(character) {
+function newYearCalling(character: any) {
   switch (character) {
     case 'Дед Мороз': { console.log(`${character}! `.repeat(3)) };
     break

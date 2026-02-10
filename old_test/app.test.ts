@@ -38,8 +38,11 @@ test('Total calc check', () => {
   expect(
     getTotal([
       {
+        // @ts-expect-error TS(2322): Type 'number' is not assignable to type 'never'.
         price,
+        // @ts-expect-error TS(2322): Type 'number' is not assignable to type 'never'.
         quantity,
+        // @ts-expect-error TS(2322): Type 'number' is not assignable to type 'never'.
         discount
       }
     ])
@@ -49,6 +52,7 @@ test('Total calc check', () => {
 test.each([null, true, faker.number.bigInt(), faker.string.alpha(), {}, []])(
   'Discount is not a number exception for %s',
   discount => {
+    // @ts-expect-error TS(2322): Type 'number' is not assignable to type 'never'.
     expect(() => getTotal([{price: 10, quantity: 20}], discount)).toThrow('Скидка должна быть числом');
   }
 );
@@ -59,5 +63,6 @@ test.each([
   99.000001,
   faker.number.float({min: 99.000002, max: 100000000})
 ])('Discount is out of bounds exception for %s', discount => {
+  // @ts-expect-error TS(2322): Type 'number' is not assignable to type 'never'.
   expect(() => getTotal([{price: 10, quantity: 20}], discount)).toThrow('Процент скидки должен быть от 0 до 99');
 });
