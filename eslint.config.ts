@@ -6,7 +6,14 @@ import jest from 'eslint-plugin-jest'
 
 export default tseslint.config(
   {
-    languageOptions: { globals: { ...globals.browser, ...globals.node } }
+    languageOptions: { 
+      globals: { 
+      ...globals.browser, 
+      ...globals.node, 
+      $: true,
+      fs: true
+      } 
+    }
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
@@ -21,11 +28,7 @@ export default tseslint.config(
     extends: [tseslint.configs.disableTypeChecked]
   },
   {
-    files: ['scripts/**/*.zx.js'],
-    globals: {
-      $: true,
-      fs: true
-    }
+    files: ['scripts/**/*.zx.js']
   },
   {
     files: ['test/**', 'setup-jest.js'],
