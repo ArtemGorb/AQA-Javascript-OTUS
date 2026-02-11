@@ -1,11 +1,11 @@
-import AccountOperator from '../framework/fixtures/AccountOperator.js';
-import UserCredsFeeder from '../framework/fixtures/UserCredsFeeder.js';
-import config from '../framework/config/config.js';
-import BooksOperator from '../framework/fixtures/BooksOperator.js';
-import BooksDataFeeder from '../framework/fixtures/BooksDataFeeder.js';
+import AccountOperator from '../framework/services/AccountOperator';
+import UserCredsFeeder from '../framework/fixtures/UserCredsFeeder';
+import config from '../framework/config/config';
+import BooksOperator from '../framework/services/BooksOperator';
+import BooksDataFeeder from '../framework/fixtures/BooksDataFeeder';
 
-let token = null;
-let userID = null;
+let token: string;
+let userID: string;
 
 beforeAll(async () => {
   const getTokenResult = await AccountOperator.generateToken(
@@ -13,6 +13,7 @@ beforeAll(async () => {
     config.getConfig().alwaysPresentPassword
   );
   token = `Bearer ${getTokenResult.body.token}`;
+  // @ts-expect-error
   userID = config.getConfig().alwaysPresentUserId;
 });
 
@@ -88,6 +89,7 @@ describe('Получение данных книги', () => {
 
   it('Ошибка запроса: Невалидный ISBN', async () => {
     const notExistISBN = BooksDataFeeder.generateISBN();
+    // @ts-expect-error TS(2554): Expected 3-4 arguments, but got 2.
     let result = await BooksOperator.updateBook(notExistISBN, token);
     expect(result.status).toBe(400);
   });

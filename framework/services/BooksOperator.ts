@@ -1,20 +1,23 @@
+// @ts-expect-error TS(7016): Could not find a declaration file for module 'supe... Remove this comment to see the full error message
 import supertest from 'supertest';
 import config from '../config/config';
 
 const URL = config.getConfig().baseURL;
 
-async function createBookList(userID, isbns, token = '123') {
+async function createBookList(userID: any, isbns: any, token = '123') {
   const result = await supertest(URL)
     .post('/BookStore/v1/Books')
     .send({
       userId: userID,
-      collectionOfIsbns: isbns.map(isbn => ({isbn}))
+      collectionOfIsbns: isbns.map((isbn: any) => ({
+        isbn
+      }))
     })
     .set('Authorization', token);
   return result;
 }
 
-async function deleteBookList(userID, token = '123') {
+async function deleteBookList(userID: any, token = '123') {
   // eslint-disable-next-line prettier/prettier
   const result = await supertest(URL)
     .delete(`/BookStore/v1/Books/${userID}`)
@@ -22,7 +25,7 @@ async function deleteBookList(userID, token = '123') {
   return result;
 }
 
-async function updateBook(userID, oldISBN, newISBN, token = '123') {
+async function updateBook(userID: any, oldISBN: any, newISBN: any, token = '123') {
   const result = await supertest(URL)
     .put(`/BookStore/v1/Books/${oldISBN}`)
     .send({
@@ -33,7 +36,7 @@ async function updateBook(userID, oldISBN, newISBN, token = '123') {
   return result;
 }
 
-async function getBook(isbn, token = '123') {
+async function getBook(isbn: any, token = '123') {
   // eslint-disable-next-line prettier/prettier
   const result = await supertest(URL)
     .get(`/BookStore/v1/Books/${isbn}`)
@@ -41,7 +44,7 @@ async function getBook(isbn, token = '123') {
   return result;
 }
 
-async function deleteBook(userID, isbn, token = '123') {
+async function deleteBook(userID: any, isbn: any, token = '123') {
   const result = await supertest(URL)
     .delete(`/BookStore/v1/Book`)
     .send({

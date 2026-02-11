@@ -3,7 +3,7 @@
  * @param {string} name
  * @returns {boolean}
  */
-export const nameIsValid = name => typeof name === 'string' && name.length >= 2 && /^[a-z]+$/.test(name)
+export const nameIsValid = (name: any) => typeof name === 'string' && name.length >= 2 && /^[a-z]+$/.test(name)
 
 /**
  * Удаление пробелов из строки
@@ -11,7 +11,7 @@ export const nameIsValid = name => typeof name === 'string' && name.length >= 2 
  * @param {string} text
  * @returns {string}
  */
-export const fullTrim = text => (text ?? '').replace(/\s+/g, '')
+export const fullTrim = (text: any) => (text ?? '').replace(/\s+/g, '')
 
 /**
  * Подсчёт суммы заказа
@@ -54,8 +54,9 @@ const scores = {
   doggo: 999
 }
 
-function getScoreSumm(scores) {
+function getScoreSumm(scores: any) {
   const arrayFromObj = Object.values(scores)
+  // @ts-expect-error TS(2571): Object is of type 'unknown'.
   return arrayFromObj.reduce((acc, score) => acc + score)
 }
 
