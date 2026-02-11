@@ -7,7 +7,7 @@ const config = {
   alwaysPresentPassword: process.env.ALWAYS_PRESENT_PASSWORD,
   alwaysPresentUserId: process.env.ALWAYS_PRESENT_USERID,
   alwaysPresentISBN: process.env.ALWAYS_PRESENT_ISBN
-};
+} as const;
 const getConfig = () => config;
 
 export default {getConfig};
