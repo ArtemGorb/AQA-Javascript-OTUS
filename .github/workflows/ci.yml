@@ -4,26 +4,24 @@ on: push
 
 jobs:
   codestyle:
-    runs-on: ubuntu-latest
-    
+    runs-on: ubuntu-latest    
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-      with:
-        node-version: 24.3.0
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run lint:ci
+        with:
+          node-version: 24.3.0
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run lint:ci
 
   test:
-    runs-on: ubuntu-latest
-    
+    runs-on: ubuntu-latest   
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-      with:
-        node-version: 24.3.0
-        cache: 'npm'
-    - run: npm ci
-    - run: echo "${{vars.ENV_FILE}}" >> .env
-    - run: npm run test
+        with:
+          node-version: 24.3.0
+          cache: 'npm'
+      - run: npm ci
+      - run: echo "${{vars.ENV_FILE}}" >> .env
+      - run: npm run test
