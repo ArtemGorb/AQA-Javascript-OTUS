@@ -41,6 +41,8 @@ jobs:
       - run: npm run test
 
   notify:
+    needs:
+      - test
     if: always()
     runs-on: ubuntu-latest   
     steps:
